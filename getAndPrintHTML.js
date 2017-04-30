@@ -10,13 +10,15 @@ function getAndPrintHTML(options) {
             buffer += data;
         });
 
-        console.log(buffer + '\n');
+        response.on('end', function () {
+            console.log(buffer);
+        });
     });
 }
 
 var requestOptions = {
     host: 'sytantris.github.io',
-    path: '/http-examples/step2.html'
+    path: '/http-examples/step3.html'
 };
 
 getAndPrintHTML(requestOptions);

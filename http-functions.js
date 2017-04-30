@@ -9,6 +9,9 @@ module.exports = function getHTML(options, callback) {
         response.on('data', function (data) {
             buffer += data;
         });
-        callback(buffer);
+
+        response.on('end', function () {
+            callback(buffer);
+        });
     });
 };
